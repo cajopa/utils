@@ -34,12 +34,17 @@ def parse_args():
 	return parser.parse_args()
 
 def parse_bash(bash_path):
-	pass
+	#bash uses execvp directly, which uses colon to split, with no provision for escaping or quoting
+	
+	return bash_path.split(':')
 
 def parse_pathd(pathd_directory=None):
 	pass
 
 def encode_bash_path(paths):
+	return ':'.join(paths)
+
+def dedupe(paths):
 	pass
 
 def main(args):
